@@ -1,0 +1,45 @@
+#!/bin/bash -l
+#SBATCH -A uppmax2023-2-8
+#SBATCH -M snowy
+#SBATCH -p core
+#SBATCH -n 4
+#SBATCH -t 05:00:00
+#SBATCH -J 0202_RNA_Trimmomatics
+#SBATCH --mail-user neh-eyong.langsi.0046@student.uu.se
+#SBATCH --mail-type=ALL
+
+# Load modules
+module load bioinfo-tools
+module load trimmomatic
+
+
+# Your commands
+input_path=/home/nehlang/Genom-Analysis-Project-2023/Data/02_RNA_raw_data
+#output_path=/home/nehlang/Genom-Analysis-Project-2023/Analysis/Trimmomatic_RNA_output
+for number in 29 30 31 32 33
+do 
+
+trimmomatic PE -threads 4 $input_path/ERR20366${number}_1.fastq.gz $input_path/ERR20366${number}_2.fastq.gz \
+ERR20366${number}_1_trimed_FP.fastq.gz ERR20366${number}_1_trim_FUP.fastq.gz \
+ERR20366${number}_2_trim_RP.fastq.gz ERR20366${number}_2_trim_RUP.fastq.gz \
+ILLUMINACLIP:/sw/apps/bioinfo/trimmomatic/0.39/rackham/adapters/TruSeq3-PE.fa:2:30:10 LEADING:3 TRAILING SLIDINGWINDOW:4:15 MINLEN:36
+
+trimmomatic PE -threads 4 $input_path/ERR20366${number}_1.fastq.gz $input_path/ERR20366${number}_2.fastq.gz \
+ERR20366${number}_1_trimed_FP.fastq.gz ERR20366${number}_1_trim_FUP.fastq.gz \
+ERR20366${number}_2_trim_RP.fastq.gz ERR20366${number}_2_trim_RUP.fastq.gz \
+ILLUMINACLIP:/sw/apps/bioinfo/trimmomatic/0.39/rackham/adapters/TruSeq3-PE.fa:2:30:10 LEADING:3 TRAILING SLIDINGWINDOW:4:15 MINLEN:36
+
+trimmomatic PE -threads 4 $input_path/ERR20366${number}_1.fastq.gz $input_path/ERR20366${number}_2.fastq.gz \
+ERR20366${number}_1_trimed_FP.fastq.gz ERR20366${number}_1_trim_FUP.fastq.gz \
+ERR20366${number}_2_trim_RP.fastq.gz ERR20366${number}_2_trim_RUP.fastq.gz \
+ILLUMINACLIP:/sw/apps/bioinfo/trimmomatic/0.39/rackham/adapters/TruSeq3-PE.fa:2:30:10 LEADING:3 TRAILING SLIDINGWINDOW:4:15 MINLEN:36
+
+trimmomatic PE -threads 4 $input_path/ERR20366${number}_1.fastq.gz $input_path/ERR20366${number}_2.fastq.gz \
+ERR20366${number}_1_trimed_FP.fastq.gz ERR20366${number}_1_trim_FUP.fastq.gz \
+ERR20366${number}_2_trim_RP.fastq.gz ERR20366${number}_2_trim_RUP.fastq.gz \
+ILLUMINACLIP:/sw/apps/bioinfo/trimmomatic/0.39/rackham/adapters/TruSeq3-PE.fa:2:30:10 LEADING:3 TRAILING SLIDINGWINDOW:4:15 MINLEN:36
+
+trimmomatic PE -threads 4 $input_path/ERR20366${number}_1.fastq.gz $input_path/ERR20366${number}_2.fastq.gz \
+ERR20366${number}_1_trimed_FP.fastq.gz ERR20366${number}_1_trim_FUP.fastq.gz \
+ERR20366${number}_2_trim_RP.fastq.gz ERR20366${number}_2_trim_RUP.fastq.gz \
+ILLUMINACLIP:/sw/apps/bioinfo/trimmomatic/0.39/rackham/adapters/TruSeq3-PE.fa:2:30:10 LEADING:3 TRAILING SLIDINGWINDOW:4:15 MINLEN:36
