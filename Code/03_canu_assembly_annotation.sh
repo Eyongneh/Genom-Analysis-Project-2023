@@ -9,19 +9,10 @@
 #SBATCH --mail-type=ALL
 
 #short cut to directories
-ref_1=/home/nehlang/Genom-Analysis-Project-2023/Data/2_Christel_2017/reference/OBMB01.fasta
+#ref_1=/home/nehlang/Genom-Analysis-Project-2023/Data/2_Christel_2017/reference/OBMB01.fasta
 output=/home/nehlang/Genom-Analysis-Project-2023/Analysis
 
-
-# Load modules
-module load bioinfo-tools
-module load quast
-
-# load modules
 module load bioinfo-tools
 module load prokka
 
-# Your commands
-# Choose the names of the output files
-# Choose the names of the output files
-prokka --outdir $output --prefix 03_prokka_L_ferri $output/01_canu_dna_output.contigs.fasta --force
+prokka --outdir $output --proteins ML_04.faa --prefix ML_04_prokka $output/01_canu_dna_output.contigs.fasta --force
